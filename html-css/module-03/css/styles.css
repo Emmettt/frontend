@@ -1,0 +1,67 @@
+*  {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #fff;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    width: 480px;
+    margin: 30px auto;
+    padding: 60px 38px;
+    background-color: #fff;
+    font-family: "Arial"; /*параметры шрифтов наследуются*/
+    font-size: 12px;
+    color: #263555; /*определен пипеткой*/
+}
+
+img {
+    width: 100%;
+    margin-bottom: 33px; /*каждый блок имеет margin-bottom для отступов как в макете*/
+}
+
+h1, h2 {
+    font-family: "Pathway Gothic One";
+    margin-bottom: 27px;
+}
+
+h3 {
+    margin-bottom: 18px;
+}
+
+p {
+    color: #4e5050; /*определен пипеткой*/
+    line-height: 1.5;
+    margin-bottom: 27px;
+}
+
+/*три абзаца в макете Уже остальных*/
+.narrowParagraph { 
+    width: 350px;
+}
+
+/*разделительная линия*/
+hr { 
+    border-top: 1px solid #dedbdb; /*определен пипеткой*/
+    border-bottom: 0;
+    margin: 54px 0;
+}
+
+.listBox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+li {
+    list-style: none;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+    margin-left: 12px;
+}
