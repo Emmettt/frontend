@@ -15,7 +15,7 @@ body {
     background-color: #fff;
 }
 
-.wrapper1 {
+.header {
     box-sizing: border-box;
     width: 1024px;
     margin: 30px auto;
@@ -133,7 +133,7 @@ body {
 
 /*### S L I D E R ##########################################*/
 
-.wrapper2 {
+.main {
     position: relative;
     box-sizing: border-box;
     width: 1024px;
@@ -142,14 +142,19 @@ body {
     background-color: #fff;
 }
 
-.slider_slide {
+.slider_content {
     position: relative;
+}
+
+.slider_slide {
     height: 580px;
-    /*background-size: cover;*/
 }
 
 .slide {
     position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .slider {
@@ -164,6 +169,7 @@ body {
     text-transform: uppercase;
     font-family: "Pathway Gothic One";
     line-height: 60px;
+    z-index: 2;
 }
 
 .slogan1 {
@@ -181,9 +187,10 @@ body {
 
 .slider_control {
     position: absolute;
-    top:450px;
+    bottom: 50px;
     left:35px;
     border: none;
+    z-index: 2;
 }
 
 .back, .forward {
@@ -232,29 +239,21 @@ body {
     vertical-align: top;
     width: 290px;
     height: 290px;
-    
+    position: relative;
 }
 
-.venice {
-    background-image: url(../img/venice.jpg);
-    background-size: cover;
+.city_img {
+    width: 100%;
+    height: 100%;
+}
+
+.venice, .newyork  {
     margin-right: 15px;
-}
-
-.newyork {
-    background-image: url(../img/ny.jpg);
-    background-size: cover;
-    margin-right: 15px;
-}
-
-.paris {
-    background-image: url(../img/paris.jpg);
-    background-size: cover; 
-
 }
 
 .info_card {
-    position: relative;
+    position: absolute;
+    top: 0;
     width: 135px;
     height: 250px;
     background-color: #193149;

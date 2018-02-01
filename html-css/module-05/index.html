@@ -11,9 +11,9 @@
     <title>Module-05</title>
 </head>
 <body>
-    <main>    
-        <div class="wrapper1">
-            <header>
+    <section class="wrapper">    
+        <header class="header">
+            <div class="conteiner-nav">
                 <nav>
                     <ul class="menu">
                         <li class="menu_item"><a href="#">Home</a></li>
@@ -32,26 +32,26 @@
                         <li class="menu_item"><a href="#">Contacts</a></li>
                     </ul>
                 </nav>
-            </header>
-        </div> <!-- wrapper1 -->
-        <div class="wrapper2">
+            </div>
+        </header> <!-- wrapper1 -->
+        <main class="main">
             <section class="slider">
                 <div class="slider_container">
                     <div class="slider_content">
+                        <div class="slogan1">
+                            <p>There are plenty of places</p>
+                        </div>
+                        <div class="slogan2">
+                            <p>That are worth seeing</p>
+                        </div>
+                        <div class="slider_control">
+                            <button  class="back">←</button>
+                            <button  class="forward">→</button>
+                        </div>
                         <div class="slider_slide">
                             <img class="slide" src="img/slide-1.jpg" alt="slide-1">
                             <img class="slide" src="img/slide-2.jpg" alt="slide-2">
                             <img class="slide" src="img/slide-3.jpg" alt="slide-3">
-                            <div class="slogan1">
-                                <p>There are plenty of places</p>
-                            </div>
-                            <div class="slogan2">
-                                <p>That are worth seeing</p>
-                            </div>
-                            <div class="slider_control">
-                                <button  class="back">←</button>
-                                <button  class="forward">→</button>
-                            </div>
                         </div>
                     </div>
                 </div>   
@@ -61,6 +61,7 @@
                     <h2 class = "hdr">TOP DESTINATIONS</h2>
                     <div class="top-dest_grid">
                         <div class= "venice city">
+                            <img class="city_img" src="img/venice.jpg" alt="Venice">
                             <section class= info_card>
                                 <h2 class = "city_name">VENICE</h2>
                                 <p>Commodi aliquid repudiandae nulla itaque ab quas eum ipsum, itaque ab quas eum ipsum, nisi vero, magnam sunt reprehenderit nisi vero, magnam sunt reprehenderit id. Soluta nobis ducimus fugit libero consequuntur in.</p>
@@ -68,13 +69,15 @@
                             </section>
                         </div>
                         <div class= "newyork city">
+                            <img class="city_img" src="img/ny.jpg" alt="New York">
                             <section class="info_card">
                                 <h2 class = "city_name">NEW YORK</h2>
                                 <p>Temporibus aspernatur nostrum veniam corporis qui, aut tempore itaque ab quas eum ipsum, nisi vero, magnam sunt reprehenderit  magni quos atque excepturi? Aliquam officiis, hic maxime vol tates unde tempora   minus.</p>
                                 <button class="details_btn">Details</button>
-                               </section>
+                            </section>
                         </div>
                         <div class= "paris city">
+                            <img class="city_img" src="img/paris.jpg" alt="Paris">
                             <section class="info_card">
                                 <h2 class = "city_name">PARIS</h2>
                                 <p>Neque eius alias voluptas, quae, officia voluptates autem voluptate itaque ab quas eum ipsum, nisi vero, magnam sunt reprehenderit  error consectetur vitae inventore nobis quibusdam  commodi  illum iste recusandae.</p>
@@ -85,7 +88,7 @@
                 </div>
             </section>
             <a href="#" class="go-to-top">↑</a>
-        </div> 
-    </main>    
+        </main> 
+    </section>    
 </body>
 </html>
