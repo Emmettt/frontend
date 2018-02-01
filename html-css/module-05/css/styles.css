@@ -134,6 +134,7 @@ body {
 /*### S L I D E R ##########################################*/
 
 .wrapper2 {
+    position: relative;
     box-sizing: border-box;
     width: 1024px;
     margin: 0 auto 70px;
@@ -141,12 +142,18 @@ body {
     background-color: #fff;
 }
 
-.slider {
+.slider_slide {
     position: relative;
     height: 580px;
-    background-image: url(../img/slide-1.jpg);
-    background-size: cover;
-    margin-bottom: 60px; 
+    /*background-size: cover;*/
+}
+
+.slide {
+    position: absolute;
+}
+
+.slider {
+    margin-bottom: 60px
 }
 
 .slogan1, .slogan2 {
@@ -176,6 +183,7 @@ body {
     position: absolute;
     top:450px;
     left:35px;
+    border: none;
 }
 
 .back, .forward {
@@ -190,6 +198,7 @@ body {
     text-align: center;
     text-decoration: none;
     margin: -6px; 
+    border: none;
 }
 
 .back {
@@ -202,9 +211,9 @@ body {
     border-bottom-right-radius: 90px;
 }
 
-/*### FOOTER #####################################*/
+/*### TOP DESTINATIONS 	#####################################*/
 
-#hdr {
+.hdr {
     font-family: "Pathway Gothic One"; 
     font-size: 28px;
     margin-bottom: 48px;
@@ -220,9 +229,10 @@ body {
 
 .city {
     display: inline-block;
+    vertical-align: top;
     width: 290px;
     height: 290px;
-    margin-bottom: 70px;
+    
 }
 
 .venice {
@@ -257,7 +267,7 @@ body {
     opacity: 0;
 }
 
-button {
+.details_btn {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -268,4 +278,31 @@ button {
 .city:hover > .info_card {
     opacity: 0.8;
     transition: 0.4s all;
+}
+
+.top-dest {
+    margin-bottom: 70px;
+}
+
+.go-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: #38afe5;
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 10;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 25pt;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+}
+
+.go-to-top:hover {
+    opacity: 0.8;
+    transition: 0.3s;
 }
