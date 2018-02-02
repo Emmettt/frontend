@@ -1,5 +1,5 @@
 :root {
-   --menu_item_width: 110px;
+   --menu_item_width: 99px;
    --menu_item_height: 30px;
 }
 
@@ -24,6 +24,10 @@ body {
 }
 
  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     box-sizing: border-box;
     padding: 60px 0; 
     margin-bottom: 40px;
@@ -33,6 +37,23 @@ body {
 .sub_menu {
     list-style: none;
 }
+
+.nowrap1, .nowrap2, .nowrap3 {
+    display: flex;
+    flex-grow: 3;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+ @media (max-width: 768px) { 
+        .menu {
+         flex-direction: column;
+        }
+    .nowrap1 {order: 2; justify-content: center;}
+    .nowrap2 {order: 1; justify-content: center;}
+    .nowrap3 {order: 3; justify-content: center;} 
+ }  
+
 
 .menu_item {
     position: relative;
@@ -49,6 +70,7 @@ body {
 .sub_menu {
     display: none;
     position: absolute;
+    z-index: 2;
     top: calc(var(--menu_item_height) + 5px);
     left: 25px;
     border-top: 5px solid white;
@@ -88,7 +110,7 @@ body {
 
 .journey {
     display: block;
-    position: absolute;
+    /* position: absolute; */
     text-decoration: none;
     text-transform: uppercase;
     font-family: "Dorsa";
@@ -274,8 +296,12 @@ body {
     width: 60px;
     height: 20px;   
     border-radius: 10%;
+    background-color: #fbf6f8;
+    border: 1px solid #5a626f;
+    color: black;
+    text-decoration: none;
+    line-height: 20px;
     text-align: center;
-    padding-bottom: 6px;
     cursor: pointer;
 }
     
