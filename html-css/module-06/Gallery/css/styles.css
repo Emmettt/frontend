@@ -246,15 +246,15 @@ body {
 
 .footernav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     height: 133px;
     background-color: #30455b;
-    padding-left: 5%; 
+    padding-left: 10%; 
 }
 
 .footermenu {
-    column-count: 3;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 35px 0;
     width: 68%;
     height: 100%;
@@ -277,7 +277,6 @@ body {
     width: 32%;
     height: 100%;
     padding-top: 37px;
-    padding-left: 4%;
 }  
 
 .contact-us {

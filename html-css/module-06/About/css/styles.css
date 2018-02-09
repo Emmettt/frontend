@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -303,15 +303,15 @@ h3 {
 
 .footernav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     height: 133px;
     background-color: #30455b;
-    padding-left: 5%; 
+    padding-left: 10%; 
 }
 
 .footermenu {
-    column-count: 3;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 35px 0;
     width: 68%;
     height: 100%;
@@ -334,7 +334,6 @@ h3 {
     width: 32%;
     height: 100%;
     padding-top: 37px;
-    padding-left: 4%;
 }  
 
 .contact-us {
