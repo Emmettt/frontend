@@ -26,16 +26,23 @@
 }
 
 body {
-    background-color: #bbb;
+    background-color: #222222;
 }
+
+.container {
+    width: 940px;
+    height: 100%;
+    margin: auto;
+}
+
 
 .header {
     position: relative;
     width: 100%;
-    min-width: 960px;
-    margin: 0 auto;
     height: 700px;
+    min-width: 940px;
     background-image: url(../img/bg-img.png);
+    background-size: cover;
 }
 
    .header::before {
@@ -53,8 +60,8 @@ body {
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 70%;
-    margin: 0 auto 210px;
+    width: 100%;
+    margin-bottom: 200px;
     padding-top: 50px;
 }
 
@@ -65,24 +72,26 @@ body {
     font-size: 250%;
     color: #fed136;
     line-height: 7px;
-    opacity: 1; 
-    z-index: 0;
+    margin-left: 10px;
+    z-index: 1;
 }
 
 .menu {
     position: relative;
-    width: 500px;
+    width: 800px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     list-style: none;
-    z-index: 0;
+    z-index: 1;
 }  
 
 .menu > li > a {
     position: relative;
+    margin: 10px;
     list-style: none;
     text-decoration: none;
     font-family: 'Montserrat', regular;
+    font-size: 90%;
     color: white;
 }
 
@@ -92,13 +101,13 @@ body {
 }
 
 .slogan {
+    width: 100%;
     position: relative;
     z-index: 1;
 }
 
 .slogan1 {
     position: relative;
-    color: white;
     text-align: center;
     font-size: 300%;
     margin-bottom: 30px;
@@ -109,10 +118,9 @@ body {
 
 .slogan2 {
     position: relative;
-    color: white;
     text-align: center;
     font-size: 450%;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
     font-family: 'MontserratBold';
     color: white;
     z-index: 1;
@@ -127,23 +135,26 @@ body {
     text-decoration: none;
     text-align: center;
     line-height: 65px;
-    font-family: 'Montserrat', regular;
+    font-family: 'MontserratBold', regular;
     font-size: 108%;
     font-weight: 600;
-    color: aliceblue;
+    color: white;
     background-color: #fed136;
     border-radius: 3px;
     z-index: 1;
 }
 
-/************ Main ************/
-.main {
+/************ Suggestion ************/
+
+.suggestion {
     width: 100%;
-    min-width: 960px;
+    min-width: 940px;
     background-color: white;
-    margin: 0 auto;
     height: 570px;
-    padding: 120px 0;
+}
+
+.sugg {
+    padding: 110px 0;
 }
 
 .title {
@@ -164,12 +175,17 @@ body {
 
 .services-block {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .service {
-    max-width: 19%;
-    margin: 0 25px;
+    width: 290px;
+    margin-right: 35px;
+    padding: 0 10px;
+}
+
+.service:nth-child(3){
+    margin-right: 0;
 }
 
 .service > h3 {
@@ -193,7 +209,7 @@ body {
     height: 74px;
     border: 3px solid #fed136;
     border-radius: 50%;
-    margin: 0 auto 20px;
+    margin: 0 auto 25px;
 }
 
 .serv-icon > img {
@@ -202,18 +218,19 @@ body {
     left: 14px;
 }
 
-/**************** Form ****************/
+/**************** Main ****************/
 
 .contact-form {
     width: 100%;
-    width: 100%;
-    min-width: 960px;
-    margin: 0 auto;
+    min-width: 940px;
     height: 660px;
     background-color: #222222;
     background-image: url(../img/map-img.png);
     background-position: bottom right;
     background-repeat: no-repeat; 
+}
+
+.frm {
     padding-top: 105px;
 }
 
@@ -231,7 +248,7 @@ body {
     font-size: 140%;
     font-weight: 100;
     color: #808080;
-    margin-bottom: 70px;
+    margin-bottom: 55px;
 }
 
 
@@ -240,27 +257,31 @@ form {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 970px;
+    width: 100%;
     height: 380px;
     margin: auto;
 }
 
     input {
-        width: 455px;
+        width: 453px;
         height: 50px;
-        margin: 15px;
-        font-family: 'Montserrat', regular;
-        font-size: 100%;
+        margin: 15px 15px 15px 0;
+        font-family: 'MontserratBold', regular;
+        font-size: 90%;
         padding-left: 20px;
+        border: none;
+        border-radius: 3px;
     }
 
     textarea {
-        width: 455px;
+        width: 453px;
         height: 210px;
-        margin: 15px;
-        padding: 17px;
-        font-family: 'Montserrat', regular;
-        font-size: 100%;
+        margin: 15px 0 15px 15px;
+        padding: 17px 20px;
+        font-family: 'MontserratBold', regular;
+        font-size: 90%;
+        border: none;
+        border-radius: 3px;
     }
 
 
@@ -274,14 +295,16 @@ form {
         text-decoration: none;
         text-align: center;
         line-height: 65px;
-        font-family: 'Montserrat', regular;
+        font-family: 'MontserratBold', regular;
         font-size: 108%;
         font-weight: 600;
-        color: aliceblue;
+        color: white;
         background-color: #fed136;
         border-radius: 3px;
         border: none;
         top: 240px;
-        left: calc((100% - 240px - 30px) / 2);
+        left: 350px;
         cursor: pointer;
     }
+
+    
