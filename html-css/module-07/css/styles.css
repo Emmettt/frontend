@@ -1,22 +1,22 @@
 ﻿@font-face {
     font-family: Dancing Script; 
-    src: url(../Fonts/DancingScript-Regular.ttf); 
+    src: url(../fonts/DancingScript-Regular.ttf); 
 }
 @font-face {
     font-family: Montserrat; 
-    src: url(../Fonts/Montserrat-Regular.ttf); 
+    src: url(../fonts/Montserrat-Regular.ttf); 
 }
 @font-face {
     font-family: MontserratBold; 
-    src: url(../Fonts/Montserrat-Bold.ttf); 
+    src: url(../fonts/Montserrat-Bold.ttf); 
 }
 @font-face {
     font-family: CrimsonText-Italic; 
-    src: url(../Fonts/CrimsonText-Italic.ttf); 
+    src: url(../fonts/CrimsonText-Italic.ttf); 
 }
 @font-face {
     font-family: Roboto-Slab; 
-    src: url(../Fonts/RobotoSlab-Regular.ttf); 
+    src: url(../fonts/RobotoSlab-Regular.ttf); 
 }
 
 
