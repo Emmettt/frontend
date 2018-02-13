@@ -1,24 +1,23 @@
 ﻿@font-face {
     font-family: Dancing Script; 
-    src: url(../fonts/DancingScript-Regular.ttf); 
+    src: url(../Fonts/DancingScript-Regular.ttf); 
 }
 @font-face {
     font-family: Montserrat; 
-    src: url(../fonts/Montserrat-Regular.ttf); 
+    src: url(../Fonts/Montserrat-Regular.ttf); 
 }
 @font-face {
     font-family: MontserratBold; 
-    src: url(../fonts/Montserrat-Bold.ttf); 
+    src: url(../Fonts/Montserrat-Bold.ttf); 
 }
 @font-face {
     font-family: CrimsonText-Italic; 
-    src: url(../fonts/CrimsonText-Italic.ttf); 
+    src: url(../Fonts/CrimsonText-Italic.ttf); 
 }
 @font-face {
     font-family: Roboto-Slab; 
-    src: url(../fonts/RobotoSlab-Regular.ttf); 
+    src: url(../Fonts/RobotoSlab-Regular.ttf); 
 }
-
 
 * {
     margin: 0;
@@ -27,13 +26,12 @@
 }
 
 body {
-    background-color: black;
+    background-color: #bbb;
 }
 
 .header {
     position: relative;
     width: 100%;
-    max-width: 1400px;
     min-width: 960px;
     margin: 0 auto;
     height: 700px;
@@ -141,7 +139,6 @@ body {
 /************ Main ************/
 .main {
     width: 100%;
-    max-width: 1400px;
     min-width: 960px;
     background-color: white;
     margin: 0 auto;
@@ -209,7 +206,7 @@ body {
 
 .contact-form {
     width: 100%;
-    max-width: 1400px;
+    width: 100%;
     min-width: 960px;
     margin: 0 auto;
     height: 660px;
