@@ -58,27 +58,29 @@ body {
 
 .nav {
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    float: right;
+    width: 80%;
     margin-bottom: 200px;
     padding-top: 50px;
 }
 
 .logo {
     position: relative;
+    float: left;
+    width: 15%;
     text-decoration: none;
     font-family: 'Dancing Script', cursive;
     font-size: 250%;
     color: #fed136;
     line-height: 7px;
     margin-left: 10px;
+    padding-top: 50px;
     z-index: 1;
 }
 
 .menu {
     position: relative;
-    width: 800px;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     list-style: none;
@@ -101,6 +103,7 @@ body {
 }
 
 .slogan {
+    clear: both;
     width: 100%;
     position: relative;
     z-index: 1;
@@ -192,6 +195,7 @@ body {
     font-family: 'MontserratBold';
     margin-bottom: 10px;
     text-align: center;
+    color: #222222;
 }
 
 .service > p {
@@ -305,6 +309,26 @@ form {
         top: 240px;
         left: 350px;
         cursor: pointer;
+    }
+
+    *::-webkit-input-placeholder {
+        color: #bbbbbb;
+        opacity: 1;
+    }
+    
+    *:-moz-placeholder {
+        color: #bbbbbb;
+        opacity: 1;
+    }
+    
+    *::-moz-placeholder {
+        color: #bbbbbb;
+        opacity: 1;
+    }
+    
+    *:-ms-input-placeholder {
+        color: #bbbbbb;
+        opacity: 1;
     }
 
     
