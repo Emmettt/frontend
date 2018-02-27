@@ -1,0 +1,38 @@
+@media (min-width: 767px) {
+  header {
+    height: 700px; }
+    header .wrapper1 h1 {
+      font-size: 3em;
+      width: 480px;
+      margin-bottom: 30px; }
+    header .wrapper1 h3 {
+      width: 100%;
+      font-size: 1.6em;
+      margin-bottom: 20px; }
+    header .wrapper1 .find-button {
+      width: 220px; }
+    header .wrapper1 .hdr {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start; }
+      header .wrapper1 .hdr nav {
+        margin: 0;
+        order: 2; }
+      header .wrapper1 .hdr .logo {
+        margin: 0;
+        order: 1; }
+  .main .wrapper2 h2 {
+    width: 100%; }
+  .main .wrapper2 .main-button {
+    width: 190px; }
+  .main .wrapper2 .profile-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; }
+    .main .wrapper2 .profile-wrapper .person {
+      width: 40%; } }
+
+@media (min-width: 940px) {
+  .main .wrapper2 .profile-wrapper .person {
+    width: 25%; } }

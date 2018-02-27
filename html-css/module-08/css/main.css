@@ -1,0 +1,179 @@
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat-Regular.ttf); }
+
+@font-face {
+  font-family: MontserratBold;
+  src: url(../fonts/Montserrat-Bold.ttf); }
+
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto-Thin.ttf); }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+header {
+  min-width: 320px;
+  height: 540px;
+  background-image: url(../img/bg.png);
+  background-size: cover;
+  background-position: center; }
+  header .wrapper1 {
+    min-width: 320px;
+    max-width: 940px;
+    margin: auto; }
+    header .wrapper1 .hdr {
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      align-items: center; }
+      header .wrapper1 .hdr .logo {
+        width: 200px;
+        height: 36px;
+        text-align: center;
+        line-height: 36px;
+        margin-bottom: 30px; }
+        header .wrapper1 .hdr .logo a {
+          text-decoration: none;
+          color: white;
+          margin: auto;
+          font-family: 'MontserratBold', regular;
+          letter-spacing: 1px;
+          font-size: 1.3em; }
+          header .wrapper1 .hdr .logo a:hover {
+            color: #ff4e50;
+            transition: 0.2s; }
+      header .wrapper1 .hdr nav {
+        width: 200px;
+        height: 36px;
+        text-align: center;
+        margin-bottom: 110px; }
+        header .wrapper1 .hdr nav a {
+          display: inline-block;
+          height: 34px;
+          width: 88px;
+          text-decoration: none;
+          color: white;
+          line-height: 2em;
+          text-align: center;
+          font-family: 'MontserratBold', regular;
+          font-size: 0.9em;
+          border: 2px solid rgba(255, 255, 255, 0);
+          border-radius: 20px; }
+          header .wrapper1 .hdr nav a:hover {
+            border-color: white;
+            transition: 0.2s; }
+    header .wrapper1 h1 {
+      width: 300px;
+      margin: auto;
+      margin-bottom: 10px;
+      color: white;
+      font-family: MontserratBold;
+      font-size: 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center; }
+    header .wrapper1 h3 {
+      width: 220px;
+      height: 50px;
+      margin: auto;
+      margin-bottom: 17px;
+      color: white;
+      font-family: Roboto;
+      font-size: 1.1em;
+      font-weight: 100;
+      text-align: center; }
+    header .wrapper1 .find-button {
+      display: block;
+      margin: auto;
+      width: 280px;
+      height: 40px;
+      background-color: #ff4e50;
+      border: 2px solid #ff4e50;
+      border-radius: 20px;
+      color: white;
+      font-family: Montserrat;
+      font-size: 0.8em;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      line-height: 33px; }
+      header .wrapper1 .find-button:hover {
+        color: #ff4e50;
+        background-color: white;
+        transition: 0.2s; }
+
+.main {
+  min-width: 320px;
+  background-color: white;
+  padding-bottom: 40px; }
+  .main .wrapper2 {
+    min-width: 320px;
+    max-width: 940px;
+    margin: auto;
+    padding-top: 70px; }
+    .main .wrapper2 h2 {
+      width: 270px;
+      margin: 0 auto 17px;
+      color: #333;
+      font-family: MontserratBold;
+      font-size: 1.3em;
+      text-align: center; }
+    .main .wrapper2 .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .main .wrapper2 .profile-wrapper .person {
+        width: 100%;
+        margin: 10px 0; }
+        .main .wrapper2 .profile-wrapper .person .photo {
+          position: relative;
+          display: block;
+          width: 121px;
+          height: 121px;
+          border-radius: 50%;
+          margin: 5px auto 17px; }
+          .main .wrapper2 .profile-wrapper .person .photo .ico {
+            position: absolute;
+            top: 83px;
+            left: 83px;
+            z-index: 1; }
+        .main .wrapper2 .profile-wrapper .person h4 {
+          width: 220px;
+          margin: auto;
+          margin-bottom: 15px;
+          color: #333;
+          font-family: MontserratBold;
+          font-size: 0.9em;
+          font-weight: 700;
+          text-align: center; }
+        .main .wrapper2 .profile-wrapper .person p {
+          width: 220px;
+          margin: auto;
+          color: #666;
+          font-family: Roboto;
+          font-size: 0.85em;
+          font-weight: 600;
+          text-align: center; }
+  .main .main-button {
+    display: block;
+    margin: 20px auto;
+    width: 280px;
+    height: 40px;
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid #ff4e50;
+    color: #ff4e50;
+    font-family: MontserratBold;
+    font-size: 0.9em;
+    text-decoration: none;
+    text-align: center;
+    line-height: 37px; }
+    .main .main-button:hover {
+      color: white;
+      background-color: #ff4e50;
+      transition: 0.2s; }
