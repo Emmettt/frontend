@@ -1,0 +1,32 @@
+@media (min-width: 767px) {
+  header {
+    height: 700px; }
+    header .wrapper1 .hdr nav {
+      width: 200px;
+      float: right;
+      margin: 0 80px 0 0;
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2; }
+    header .wrapper1 .hdr .logo {
+      width: 200px;
+      float: left;
+      margin: 0 0 0 80px;
+      -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+              order: 1; }
+    header .wrapper1 h1 {
+      clear: both;
+      font-size: 3em;
+      width: 480px;
+      margin-bottom: 30px; }
+    header .wrapper1 h3 {
+      width: 100%;
+      font-size: 1.6em;
+      margin-bottom: 20px; }
+    header .wrapper1 .find-button {
+      width: 220px; }
+  .main .wrapper2 h2 {
+    width: 100%; }
+  .main .wrapper2 .main-button {
+    width: 190px; } }
