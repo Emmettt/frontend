@@ -8,11 +8,11 @@ $warmyellow: #fce38a
 @mixin title
   position: relative
   font-family: $headfont
-  font-size: 1.7em
+  font-size: 1.5em
   text-transform: uppercase
   color: #333333
   text-align: center
-  margin-bottom: 100px
+  margin-bottom: 80px
   min-width: 290px
   &:after
     content: ""
@@ -62,12 +62,14 @@ $warmyellow: #fce38a
 body 
   header
     height: 620px
-    min-width: 380px
+    min-width: 320px
+
     background-image: url(../img/bg-small.png)
+    background-position: center
     background-size: cover
     .container1
       max-width: 1200px
-      min-width: 350px
+      min-width: 320px
       margin: auto
       padding: 30px 15px 0
       .logo
@@ -81,44 +83,58 @@ body
         &:hover 
           color: $warmyellow
           transition: 0.3s
-      .nav
+      .nav__block
         float: right
-        margin-bottom: 30px
-        .menu
-          display: flex
-          flex-direction: column
-          padding-top: 5px
-          li 
-            display: block
-            margin: 0 20px
-            a 
+        margin-bottom: 40px
+        .nav
+          .menu
+            padding-top: 5px
+            li 
               display: block
-              height: 25px
-              padding: 0 5px
-              font-family: $linkfont
-              font-size: 0.82em
-              letter-spacing: 0.07em
-              font-weight: 500
-              text-transform: uppercase
-              text-decoration: none
-              color: white
-              border-bottom: 3px solid rgba(0,0,0,0)
-              &:hover 
-                color: $warmyellow
-                transition: 0.2s
-              &:hover .icon use 
-                fill: $warmyellow
-                transition: 0.2s
-              .icon
-                width: 17px
-                height: 17px
+              margin: 0 20px
+              a 
+                display: block
+                height: 25px
+                padding: 0 5px
+                font-family: $linkfont
+                font-size: 0.82em
+                letter-spacing: 0.07em
+                font-weight: 500
+                text-transform: uppercase
+                text-decoration: none
+                color: white
+                border-bottom: 3px solid rgba(0,0,0,0)
+                &:hover 
+                  color: $warmyellow
+                  transition: 0.2s
+        a 
+          display: inline-block
+          height: 25px
+          padding: 5px 0 0 25px 
+          margin: 0 0px
+          font-family: $linkfont
+          font-size: 0.82em
+          letter-spacing: 0.07em
+          font-weight: 500
+          text-transform: uppercase
+          text-decoration: none
+          color: white
+          &:hover 
+            color: $warmyellow
+            transition: 0.2s
+          &:hover .icon use 
+            fill: $warmyellow
+            transition: 0.2s
+          .icon
+            width: 17px
+            height: 17px
       .welcome
         clear: both
         .slogan
           margin-bottom: 80px 
           .slogan1
             font-family: $subfont
-            font-size: 2em        
+            font-size: 2em
             color: white 
             text-align: center 
             margin: 0 0 30px 0 
@@ -154,27 +170,28 @@ body
   main
     .container2
       max-width: 1200px
-      min-width: 380px
+      min-width: 320px
       margin: auto
       padding: 45px 15px 0
       .suggestion
-        min-width: 350px
         .subtitle 
           @include subtitle
-        .title
-          @include title
+          margin-bottom: 100px
+          span
+            @include title
+            font-size: 1.1em
+            line-height: 65px
         .services-block
           display: flex
           flex-direction: row
           flex-wrap: wrap
           justify-content: center
           align-items: flex-start
-          min-width: 350px
-          margin-bottom: 40px
+          margin: 0 -15px 
           .service
             position: relative
             padding-left: 50px
-            margin: 0 10px 60px 10px
+            margin: 0 15px 90px 15px
             width: 290px
             .service__icon
               position: absolute
@@ -192,14 +209,15 @@ body
   section 
     .container3
       max-width: 1200px
-      min-width: 380px
+      min-width: 320px
       margin: auto
-      padding: 45px 15px 0
+      padding: 0 15px
       .about
         .subtitle 
           @include subtitle
         .title
           @include title
+          font-size: 1.65em
         .service__describe
           color: #999
           font-family: $textfont
@@ -207,67 +225,64 @@ body
           font-weight: 400
           line-height: 24px
           max-width: 900px
-          min-width: 350px
-          margin:  0 auto 50px
+          margin:  0 auto 80px
           text-align: center
         .services-block
           display: flex
+          margin: 0 -15px
           flex-wrap: wrap
           justify-content: center
           align-content: center
           .card
-            //flex: 0 0 30%
-            position: relative
-            margin: 0 5px 85px 5px 
-            &:hover .tint 
-              opacity: 1
-              transform: translate(-7px, -7px)
-            &:hover .card__img 
-              transform: translate(-7px, -7px)
-            .card__img 
+            margin: 0 15px 85px 15px 
+            .card__imgcontainer
               position: relative
-              display: block
-              width: 380px
-              height: 470px
-              margin-bottom: 30px
-              transition: all 0.2s 
-            .tint
-              position: absolute
-              top: 0px
-              left: 0px
-              width: 380px
-              height: 470px
-              background-image: linear-gradient(to top, rgba(252, 227, 138, 0.88) 0%, rgba(243, 129, 129, 0.88) 100%)
-              box-shadow: 7px 7px 0 0 #95e1d3
-              opacity: 0
-              transition: all 0.2s
-              .icon-block
+              &:hover .card__imgcontainer_tint 
+                opacity: 1
+                transform: translate(-10px, -10px)
+              &:hover .card__imgcontainer_img  
+                transform: translate(-10px, -10px)              
+              .card__imgcontainer_img 
+                display: block
                 width: 100%
-                text-align: center
-                margin-top: 210px
-                .social_link 
-                  display: inline-block
-                  margin: 0 -2px 
-                  border-right: 1px solid $warmcolor 
-                  width: 55px
-                  height: 55px
-                  background-color: $warmyellow
-                  &:hover
-                    background-color: $warmcolor
-                    transition: 0.3s
-                  &:hover .icon
-                    background-color: $warmcolor
-                    transition: 0.3s
-                  &:hover .icon use  
-                    fill: white
-                    transition: 0.3s
-                  .icon
+                height: 100%
+                margin-bottom: 30px
+                transition: all 0.2s 
+              .card__imgcontainer_tint
+                position: absolute
+                display: flex 
+                align-items: center
+                top: 0px
+                left: 0px
+                width: 100%
+                height: 100%
+                background-image: linear-gradient(to top, rgba(252, 227, 138, 0.88) 0%, rgba(243, 129, 129, 0.88) 100%)
+                box-shadow: 10px 10px 0 0 #95e1d3
+                opacity: 0
+                transition: all 0.2s
+                .icon-block
+                  width: 100%
+                  text-align: center
+                  .social_link 
+                    display: inline-block
+                    margin: 0 -1.5px 
+                    width: 55px
+                    height: 55px
                     background-color: $warmyellow
-                    width: 27px
-                    height: 27px
-                    margin: 14px
-                  &:nth-child(4)
-                    border-right: none
+                    &:hover
+                      background-color: $warmcolor
+                      transition: 0.3s
+                    &:hover .icon
+                      background-color: $warmcolor
+                      transition: 0.3s
+                    &:hover .icon use  
+                      fill: white
+                      transition: 0.3s
+                    .icon
+                      background-color: $warmyellow
+                      width: 27px
+                      height: 27px
+                      margin: 14px
             .card__name 
               @include small-title
               text-align: center
@@ -281,32 +296,33 @@ body
               text-align: center
   footer 
     max-width: 1200px
-    min-width: 380px
+    min-width: 320px
     border-top: 1px solid lightgrey
-    //height: 80px
     margin: 10px auto
-    padding: 15px 15px 
+    &:after
+      content: ""
+      display: block
+      clear: both
     div
       height: 60px
       padding: 10px
       p 
         font-family: $headfont
-        font-size: 0.9em
+        font-size: 0.77em
         color: #333333
         line-height: 40px
         text-align: center
         margin-bottom: 40px
         a
           text-decoration: none
-          color: #333333
-        a:hover
-          text-decoration: none
           color: $warmcolor
+        a:hover
+          text-decoration: underline
     form 
       margin-top: 10px
       text-align: center
       input
-        width: 220px
+        width: 210px
         height: 40px
         background-color: white
         border: 1px solid #e7e7e7
@@ -318,11 +334,11 @@ body
         padding-left: 15px
         margin-right: -5px
       input[type="submit"]
-        width: 100px
+        width: 80px
         height: 40px
         background-color: #95e1d3
         font-family: $headfont
-        font-size: 0.9em
+        font-size: 0.7em
         font-style: normal
         text-transform: uppercase
         color: white
