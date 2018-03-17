@@ -11,12 +11,12 @@
       font-size: 6em;
       width: 570px;
       margin-bottom: 100px; }
-  body main .container2 .suggestion .subtitle span {
+  body main .suggestion .container2 .subtitle span {
     font-size: 1.25em;
     line-height: 65px; }
-  body section .container3 {
+  body main section .container3 {
     padding: 0; }
-    body section .container3 .about .title {
+    body main section .container3 .about .title {
       font-size: 1.875em; }
   body footer div p {
     font-size: 0.9em; }

@@ -168,12 +168,12 @@ body
             background-color: white 
             transition: 0.3s
   main
-    .container2
-      max-width: 1200px
-      min-width: 320px
-      margin: auto
-      padding: 45px 15px 0
-      .suggestion
+    .suggestion
+      .container2
+        max-width: 1200px
+        min-width: 320px
+        margin: auto
+        padding: 45px 15px 0
         .subtitle 
           @include subtitle
           margin-bottom: 100px
@@ -206,94 +206,96 @@ body
               font-weight: 400
               line-height: 24px
   
-  section 
-    .container3
-      max-width: 1200px
-      min-width: 320px
-      margin: auto
-      padding: 0 15px
-      .about
-        .subtitle 
-          @include subtitle
-        .title
-          @include title
-          font-size: 1.65em
-        .service__describe
-          color: #999
-          font-family: $textfont
-          font-size: 15px
-          font-weight: 400
-          line-height: 24px
-          max-width: 900px
-          margin:  0 auto 80px
-          text-align: center
-        .services-block
-          display: flex
-          margin: 0 -15px
-          flex-wrap: wrap
-          justify-content: center
-          align-content: center
-          .card
-            margin: 0 15px 85px 15px 
-            .card__imgcontainer
-              position: relative
-              &:hover .card__imgcontainer_tint 
-                opacity: 1
-                transform: translate(-10px, -10px)
-              &:hover .card__imgcontainer_img  
-                transform: translate(-10px, -10px)              
-              .card__imgcontainer_img 
-                display: block
-                width: 100%
-                height: 100%
-                margin-bottom: 30px
-                transition: all 0.2s 
-              .card__imgcontainer_tint
-                position: absolute
-                display: flex 
-                align-items: center
-                top: 0px
-                left: 0px
-                width: 100%
-                height: 100%
-                background-image: linear-gradient(to top, rgba(252, 227, 138, 0.88) 0%, rgba(243, 129, 129, 0.88) 100%)
-                box-shadow: 10px 10px 0 0 #95e1d3
-                opacity: 0
-                transition: all 0.2s
-                .icon-block
+    section 
+      .container3
+        max-width: 1200px
+        min-width: 320px
+        margin: auto
+        padding: 0 15px
+        .about
+          .subtitle 
+            @include subtitle
+          .title
+            @include title
+            font-size: 1.65em
+          .service__describe
+            color: #999
+            font-family: $textfont
+            font-size: 15px
+            font-weight: 400
+            line-height: 24px
+            max-width: 900px
+            margin:  0 auto 80px
+            text-align: center
+          .services-block
+            display: flex
+            margin: 0 -15px
+            flex-wrap: wrap
+            justify-content: center
+            align-content: center
+            .card
+              margin: 0 15px 85px 15px 
+              max-width: 380px
+              .card__imgcontainer
+                position: relative
+                &:hover .card__imgcontainer_tint 
+                  opacity: 1
+                  transform: translate(-10px, -10px)
+                &:hover .card__imgcontainer_img  
+                  transform: translate(-10px, -10px)              
+                .card__imgcontainer_img 
+                  display: block
                   width: 100%
-                  text-align: center
-                  .social_link 
-                    display: inline-block
-                    margin: 0 -1.5px 
-                    width: 55px
-                    height: 55px
-                    background-color: $warmyellow
-                    &:hover
-                      background-color: $warmcolor
-                      transition: 0.3s
-                    &:hover .icon
-                      background-color: $warmcolor
-                      transition: 0.3s
-                    &:hover .icon use  
-                      fill: white
-                      transition: 0.3s
-                    .icon
+                  height: 100%
+                  margin-bottom: 30px
+                  transition: all 0.2s 
+                .card__imgcontainer_tint
+                  position: absolute
+                  display: flex 
+                  align-items: center
+                  top: 0px
+                  left: 0px
+                  width: 100%
+                  height: 100%
+                  background-image: linear-gradient(to top, rgba(252, 227, 138, 0.88) 0%, rgba(243, 129, 129, 0.88) 100%)
+                  box-shadow: 10px 10px 0 0 #95e1d3
+                  opacity: 0
+                  transition: all 0.2s
+                  .icon-block
+                    width: 100%
+                    text-align: center
+                    .social_link 
+                      display: inline-block
+                      margin: 0 -1.5px 
+                      width: 55px
+                      height: 55px
                       background-color: $warmyellow
-                      width: 27px
-                      height: 27px
-                      margin: 14px
-            .card__name 
-              @include small-title
-              text-align: center
-            .card__describe 
-              color: #b9b9b9
-              font-family: $textfont
-              font-size: 15px
-              font-weight: 300
-              font-style: italic
-              line-height: 24px
-              text-align: center
+                      &:hover
+                        background-color: $warmcolor
+                        transition: 0.3s
+                      &:hover .icon
+                        background-color: $warmcolor
+                        transition: 0.3s
+                      &:hover .icon use  
+                        fill: white
+                        transition: 0.3s
+                      .icon
+                        background-color: $warmyellow
+                        width: 27px
+                        height: 27px
+                        margin: 14px
+              .card__name 
+                @include small-title
+                text-align: center
+              .card__describe 
+                color: #b9b9b9
+                font-family: $textfont
+                font-size: 15px
+                font-weight: 300
+                font-style: italic
+                line-height: 24px
+                text-align: center
+                max-width: 380px
   footer 
     max-width: 1200px
     min-width: 320px
