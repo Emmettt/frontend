@@ -1,66 +1,100 @@
-let model = {
- 	  	  Sharm : 16,
- 	  	Hurgada : 6,
- 	  	   Taba : 6,
- 	    Antalya : 6,
- 		  	 Bali : 0,
- 		 Thailand : 9,
- 	  	 Greece : 18,
- 		    Spain : 7
-		}
+const resorts = {
+  sharm: 16,
+  hurgada: 6,
+  taba: 6,
+  antalya: 6,
+  bali: 0,
+  thailand: 9,
+  greece: 18,
+  spain: 7,
+};
 
-let view = {
-	render : function (data) {	                    // Отрисовка таблицы на основании model
-		let orderBtn = document.getElementById("btn");						
-		orderBtn.addEventListener('click', order);    // Кнопка
-		let tbl = document.getElementById("resorts");	// Таблица
-		for (let key in data) {
-			let row = document.createElement("TR");
-			let resort = document.createElement("TD");
-			let vouchers = document.createElement("TD");
-			resort.innerHTML = key;
-			vouchers.innerHTML = data[key];
-			vouchers.id = key;
-			tbl.appendChild(row);
-			row.appendChild(resort);
-			row.appendChild(vouchers);
-		}
-	},
+renderView();
 
-	redraw : function (data, key) {	 // Отражение в таблице изменений в model
-		let el = document.getElementById(key);
-		el.innerHTML = data[key];
-	}
+function renderView() {
+  initOrderBtn(processOrder);
+  initResortsTable();
 }
 
-function order (e) {
-	let qty = prompt('Сколько путевок надо ? :');
-	if (qty === null) return; else qty = Number(qty);
-	if (!Number.isInteger(qty) || qty <= 0) {
-		alert('Неправильный ввод. Введите целое, положительное число.'); 
-		return;
-	};
-	let nextMin = 0;  	            // Переменная хранит последнее значение количества мест которые уже предлагались
-	finishLabel: do {																																										
-		let nonChekedResort = Infinity;																																		
-		for (let key in model) {	    // Ищем курорт с минимальным количеством мест (пытаемся быстрее заполнить группу)
-			if (Number(model[key]) < nonChekedResort && Number(model[key]) > nextMin)											
-				nonChekedResort = Number(model[key]);
-		}
-		nextMin = nonChekedResort;
-		if (nextMin >= qty)
-			for (let key in model) {		// Если таких несколько - предлагаем их.
-				if (Number(model[key]) === nextMin) {																													
-					if (confirm(`Едешь в ${key} ?  Доступно мест: ${model[key]}, требуется ${qty} .`)) {		
-						model[key] -= qty;		// Уменьшаем в model кол-во свободных мест
-						view.redraw(model, key); 		// Отражаем изменения на экране
-						alert(`Приятного путешествия в группе ${key} .`);
-						break finishLabel; 																																				
-					}
-			 	}
-			}
-	} while (nextMin !== Infinity);	 // Если все варианты были предложены nextMin будет Infinity
-	if (nextMin === Infinity) alert ('Извините - мест нет!');
+function initOrderBtn(cb) {
+  const orderBtn = document.getElementById('btn');
+  orderBtn.addEventListener('click', cb);
 }
 
-view.render(model);				//     ЖИВИ !!!
+function initResortsTable() {
+  const table = document.getElementById('resorts');
+
+  for (const key in resorts) {
+    const row = document.createElement('tr');
+    const resort = document.createElement('td');
+    const vouchers = document.createElement('td');
+
+    resort.innerHTML = key;
+    vouchers.innerHTML = resorts[key];
+    vouchers.dataset.resort = key;
+
+    row.append(resort, vouchers);
+    table.appendChild(row);
+  }
+}
+
+function updateResortsTable(key) {
+  const cell = document.querySelector(`#resorts td[data-resort="${key}"]`);
+  cell.innerHTML = resorts[key];
+}
+
+function processOrder() {
+  const userInput = getUserInput();
+  const isValidInput = checkUserInputValidity(userInput);
+
+  if (!isValidInput) {
+    alert('wtf dude, get your shit straight! positive numbers only!');
+    return;
+  }
+
+  const resort = checkAvailableResort(userInput);
+
+  if (resort) {
+    resorts[resort] -= userInput;
+    updateResortsTable(resort);
+
+    alert(`Давай не пей много на ${resort}, целуем в лобик!`);
+  } else {
+    alert('Да ты походу никуда не хочешь, ну и ладно!');
+  }
+}
+
+function getUserInput() {
+  return Number(prompt('Сколько путевок надо ?: '));
+}
+
+function checkUserInputValidity(val) {
+  const isInRange = val >= 1;
+  const isValidInput = val !== null;
+  const isNaN = Number.isNaN(val);
+
+  if (isValidInput && !isNaN && isInRange) {
+    return true;
+  }
+
+  return false;
+}
+
+function checkAvailableResort(num) {
+  const entries = Object.entries(resorts);
+  const sortedEntries = entries.sort((a, b) => a[1] > b[1]);
+
+  for (const entry of sortedEntries) {
+    const [name, value] = entry;
+
+    if (value >= num) {
+      const isGoing = confirm(
+        `Едем в ${name}? Доступно ${value}, требуется ${num}.`,
+      );
+
+      if (isGoing) return name;
+    }
+  }
+
+  return null;
+}
