@@ -1,4 +1,4 @@
-﻿'use strict'
+"use strict";
 
 const passwordArray = [
   "qwerty",
@@ -11,7 +11,7 @@ const passwordArray = [
   "vbnm"
 ];
 
-switch (loggingIn(5)) {
+switch (loggingIn(3)) {
   case true:
     alert("Добро пожаловать !");
     break;
@@ -30,12 +30,11 @@ function loggingIn(attempts) {
   while (attempts) {
     inputPassword = getUserInput();
     if (inputPassword === null) return null;
-    if (isValidPassword(passwordArray, inputPassword)) break;
-    attempts -= 1;
-    if (attempts > 0) alert(`Осталось попыток : ${attempts}`);
+    if (isValidPassword(passwordArray, inputPassword)) return true;
+    attempts--;
+    if (attempts !== 0) alert(`Осталось попыток : ${attempts}`);
   }
-  if (attempts === 0) return false;
-  return true;
+  return false;
 }
 
 function getUserInput() {
