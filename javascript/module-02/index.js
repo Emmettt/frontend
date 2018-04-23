@@ -1,3 +1,5 @@
+﻿'use strict'
+
 const passwordArray = [
   "qwerty",
   "123",
