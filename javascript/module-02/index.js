@@ -11,7 +11,9 @@ const passwordArray = [
   "vbnm"
 ];
 
-switch (loggingIn(3)) {
+let attemptsLeft = loggingIn(3);
+
+switch (attemptsLeft) {
   case true:
     alert("Добро пожаловать !");
     break;
@@ -27,11 +29,11 @@ switch (loggingIn(3)) {
 
 function loggingIn(attempts) {
   let inputPassword;
-  while (attempts) {
+  while (attempts > 0) {
     inputPassword = getUserInput();
     if (inputPassword === null) return null;
     if (isValidPassword(passwordArray, inputPassword)) return true;
-    attempts--;
+    attempts -= 1;
     if (attempts !== 0) alert(`Осталось попыток : ${attempts}`);
   }
   return false;
@@ -43,6 +45,5 @@ function getUserInput() {
 }
 
 function isValidPassword(passwordArray, inputPassword) {
-  if (passwordArray.includes(inputPassword) === true) return true;
-  return false;
+  return passwordArray.includes(inputPassword);
 }
