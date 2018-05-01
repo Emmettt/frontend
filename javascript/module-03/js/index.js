@@ -11,45 +11,51 @@ let userDB = {
   hhhhh: 'hhhpsw'
 };
 
+const form = document.getElementById('logInForm');
+const registerButton = document.getElementById('registerBtn');
+const cancelButton = document.getElementById('cancelBtn');
+
+const msgWindow = document.getElementById('msgContainer');
+const msg = document.getElementById('message');
+const okButton = document.getElementById('okBtn');
+
+registerButton.addEventListener('click', registration);
+okButton.addEventListener('click', refreshWindow);
+cancelButton.addEventListener('click', refreshWindow);
+
+refreshTable();
+
 function registration() {
-  let [login, password] = getUserInput();
+  const { login, password } = getUserInput();
 
   if (isExistLogin(login)) {
     showMessage('Пользователь с таким логином уже есть.');
     return;
   }
 
-  if (isValid(login, password) && !isExistLogin(login)) {
+  if (isValid(login, password)) {
     addLogin(login, password);
     refreshTable();
     showMessage('Вы зарегистрированы как новый пользователь.');
+  } else {
+    showMessage(
+      'Правила:  Логин и пароль должны состоять из букв, цифр и " _ " , длина от 6 символов.'
+    );
   }
 }
 
 function getUserInput() {
   let login = document.getElementById('loginInput').value;
   let password = document.getElementById('passwordInput').value;
-  return [login, password];
+  return { login, password };
 }
 
 function isValid(login, password) {
-  if (login.length < 4 || login.length > 16) {
-    showMessage('Логин должен быть от 4 до 16 символов.');
-    return false;
-  }
-  if (~login.indexOf(' ')) {
-    showMessage('В логине не должно быть пробелов.');
-    return false;
-  }
-  if (password.length < 6) {
-    showMessage('Пароль должен быть больше 6 символов.');
-    return false;
-  }
-  if (~password.indexOf(' ')) {
-    showMessage('В пароле не должно быть пробелов.');
-    return false;
-  }
-  return true;
+  if (login.length > 5)
+    if (password.length > 5)
+      if (login.match(/[^\wа-яё]/gi) === null)
+        if (password.match(/[^\wа-яё]/gi) === null) return true;
+  return false;
 }
 
 function isExistLogin(login) {
@@ -64,10 +70,6 @@ function addLogin(login, password) {
 }
 
 function showMessage(message) {
-  const msgWindow = document.getElementById('msgContainer');
-  const msg = document.getElementById('message');
-  const form = document.getElementById('logInForm');
-
   msg.innerHTML = message;
   form.style.display = 'none';
   msgWindow.style.display = 'block';
@@ -75,8 +77,6 @@ function showMessage(message) {
 
 function refreshWindow() {
   //коряво крутим кино назад чтобы userDB в памяти выжила.
-  const msgWindow = document.getElementById('msgContainer');
-  const form = document.getElementById('logInForm');
   document.getElementById('loginInput').value = '';
   document.getElementById('passwordInput').value = '';
   msgWindow.style.display = 'none';
@@ -100,13 +100,3 @@ function refreshTable() {
     table.appendChild(row);
   }
 }
-
-(() => {
-  const registerButton = document.getElementById('registerBtn');
-  const okButton = document.getElementById('okBtn');
-  const cancelButton = document.getElementById('cancelBtn');
-  registerButton.addEventListener('click', registration);
-  okButton.addEventListener('click', refreshWindow);
-  cancelButton.addEventListener('click', refreshWindow);
-  refreshTable();
-})();
