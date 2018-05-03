@@ -18,48 +18,51 @@ const order = {
   cheese: 1
 };
 
-class Cashier {
-  constructor(name, products) {
-    this.name = name;
-    this.products = products;
-    this.totalPrice = 0;
-    this.customerMoney = 0;
-    this.changeAmount = 0;
-  }
+function Cashier(name, products) {
+  this.name = name;
+  this.products = products;
+  this.totalPrice = 0;
+  this.customerMoney = 0;
+  this.changeAmount = 0;
 
-  countTotalPrice(order) {
+  this.countTotalPrice = function(order) {
     for (let key in order) {
       this.totalPrice += order[key] * this.products[key];
     }
     return this.totalPrice;
-  }
+  };
 
-  getCustomerMoney() {
+  this.getCustomerMoney = function() {
     do {
-      this.customerMoney = prompt(`Общая сумма покупок - ${this.totalPrice}, гони бабло:`);
+      this.customerMoney = prompt(
+        `Общая сумма покупок - ${this.totalPrice}, гони бабло:`
+      );
       if (this.customerMoney === null) {
         return null;
       } else {
         this.customerMoney = Number(this.customerMoney);
       }
-    } while (this.customerMoney < this.totalPrice || Number.isNaN(this.customerMoney));
+    } while (
+      this.customerMoney < this.totalPrice ||
+      Number.isNaN(this.customerMoney)
+    );
 
     return this.customerMoney;
-  }
+  };
 
-  countChange() {
+  this.countChange = function() {
     if (this.customerMoney !== null)
       this.changeAmount = this.customerMoney - this.totalPrice;
     return this.changeAmount;
-  }
+  };
 
-  reset() {
+  this.reset = function() {
     this.totalPrice = 0;
     this.customerMoney = 0;
     this.changeAmount = 0;
-  }
+  };
 
-  serve(order) {
+  this.serve = function(order) {
     this.countTotalPrice(order);
     this.getCustomerMoney();
     this.countChange();
@@ -69,7 +72,7 @@ class Cashier {
       alert('Очень жаль, что-то пошло не так, приходите еще');
     }
     this.reset();
-  }
+  };
 }
 
 const cashier = new Cashier('mango', products);
