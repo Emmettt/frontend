@@ -75,3 +75,4 @@ function Cashier(name, products) {
 const cashier = new Cashier('mango', products);
 
 cashier.serve(order);
+
