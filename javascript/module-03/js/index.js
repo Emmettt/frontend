@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 const login = prompt('Введите логин:');
@@ -9,15 +9,13 @@ function addLogin(logins, login) {
   if (!checkLoginValidity(login)) {
     alert('Ошибка! Логин должен быть от 4 до 16 символов');
     return;
-  } else {
-    if (checkIfLoginExists(logins, login)) {
-      alert('Такой логин уже используется!');
-      return;
-    } else {
-      logins.push(login);
-      alert('Логин успешно добавлен!');
-    }
+  } 
+  if (checkIfLoginExists(logins, login)) {
+   alert('Такой логин уже используется!');
+   return;
   }
+  logins.push(login);
+  alert('Логин успешно добавлен!');
 }
 
 function checkLoginValidity(login) {
