@@ -29,7 +29,6 @@ function Cashier(name, products) {
     for (let key in order) {
       this.totalPrice += order[key] * this.products[key];
     }
-    return this.totalPrice;
   };
 
   this.getCustomerMoney = function() {
@@ -39,21 +38,16 @@ function Cashier(name, products) {
       );
       if (this.customerMoney === null) {
         return null;
-      } else {
-        this.customerMoney = Number(this.customerMoney);
       }
+      this.customerMoney = Number(this.customerMoney);
     } while (
       this.customerMoney < this.totalPrice ||
       Number.isNaN(this.customerMoney)
     );
-
-    return this.customerMoney;
   };
 
   this.countChange = function() {
-    if (this.customerMoney !== null)
-      this.changeAmount = this.customerMoney - this.totalPrice;
-    return this.changeAmount;
+    this.changeAmount = this.customerMoney - this.totalPrice;
   };
 
   this.reset = function() {
@@ -63,10 +57,13 @@ function Cashier(name, products) {
   };
 
   this.serve = function(order) {
+    if (!order) {
+      return null;
+    }
     this.countTotalPrice(order);
     this.getCustomerMoney();
-    this.countChange();
     if (this.customerMoney !== null) {
+      this.countChange();
       alert(`Спасибо за покупку, ваша сдача ${this.changeAmount}`);
     } else {
       alert('Очень жаль, что-то пошло не так, приходите еще');
