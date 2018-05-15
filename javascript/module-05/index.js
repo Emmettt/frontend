@@ -77,7 +77,7 @@ function SocialBook(users = [], posts = {}) {
     }
     user.id = this.getId();
     user.isActive = false;
-    users.push(user);
+    this.users.push(user);
   };
 
   this.removeUserById = function(userId) {
@@ -98,7 +98,7 @@ function SocialBook(users = [], posts = {}) {
   //----------- Доп.задания-----------//
 
   this.getUserPosts = function(userId) {
-    if (!(userId in posts)) {
+    if (!(userId in this.posts)) {
       alert('Такого юзера нет !');
       return;
     }
@@ -114,7 +114,7 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.removePost = function(userId, postId) {
-    if (!(userId in posts)) {
+    if (!(userId in this.posts)) {
       alert('Такого юзера нет !');
       return;
     }
@@ -129,7 +129,7 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.getAllLikes = function(userId) {
-    if (!(userId in posts)) {
+    if (!(userId in this.posts)) {
       alert('Такого юзера нет !');
       return;
     }
@@ -137,7 +137,7 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.addPostLike = function(userId, postId) {
-    if (!(userId in posts)) {
+    if (!(userId in this.posts)) {
       alert('Такого юзера нет !');
       return;
     }
@@ -150,7 +150,7 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.getPostsCount = function(userId) {
-    if (!(userId in posts)) {
+    if (!(userId in this.posts)) {
       alert('Такого юзера нет !');
       return;
     }
@@ -179,6 +179,6 @@ const mockUser = {
 //console.log(socialBook.removePost('-s19a6hqce', '-199hb6igr'));
 //console.log(socialBook.getAllLikes('-e51cpd4di'));
 //console.log(socialBook.addPostLike('-e51cpd4di', '-i03pbhy3s'));
-//console.log(socialBook.getPostsCount('-s19a6hqce'));
+//console.log(socialBook.getPostsCount('s19a6hqce'));
 
 //console.log(socialBook);
