@@ -63,8 +63,16 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.getUserStatus = function(userId) {
-    const user = this.users.find(users => users.id === userId);
+    let idx = 0;
+    const user = this.users.find((users, index) => {
+      if (users.id === userId) {
+        idx = index;
+        return true;
+      }
+      return false;
+    });
     if (user) {
+      alert(idx);
       return user.isActive ? 'active' : 'inactive';
     }
     alert('Такого юзера нет !');
@@ -118,9 +126,14 @@ function SocialBook(users = [], posts = {}) {
       alert('Такого юзера нет !');
       return;
     }
-    const idx = this.posts[userId].indexOf(
-      this.posts[userId].find(post => post.id === postId)
-    );
+    let idx = -1; //.filter для слабаков
+    this.posts[userId].find((post, index) => {
+      if (post.id === postId) {
+        idx = index;
+        return true;
+      }
+      return false;
+    });
     if (idx >= 0) {
       this.posts[userId].splice(idx, 1);
       return;
