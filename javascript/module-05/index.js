@@ -63,16 +63,8 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.getUserStatus = function(userId) {
-    let idx = 0;
-    const user = this.users.find((users, index) => {
-      if (users.id === userId) {
-        idx = index;
-        return true;
-      }
-      return false;
-    });
+    const user = this.users.find(users => users.id === userId);
     if (user) {
-      alert(idx);
       return user.isActive ? 'active' : 'inactive';
     }
     alert('Такого юзера нет !');
@@ -189,7 +181,7 @@ const mockUser = {
 
 //console.log(socialBook.getUserPosts('-s19a6hqce'));
 //console.log(socialBook.addPost('-s19a6hqce', 'Added New Post'));
-//console.log(socialBook.removePost('-s19a6hqce', '-199hb6igr'));
+////console.log(socialBook.removePost('-s19a6hqce', '-199hb6igr'));
 //console.log(socialBook.getAllLikes('-e51cpd4di'));
 //console.log(socialBook.addPostLike('-e51cpd4di', '-i03pbhy3s'));
 //console.log(socialBook.getPostsCount('s19a6hqce'));
