@@ -51,44 +51,30 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.getAllUsers = function() {
-    return this.users.map(user => user.id);
+    return this.users;
   };
 
   this.getUserByLogin = function(login) {
-    const user = this.users.find(user => user.login === login);
-    if (user) {
-      return user;
-    }
-    alert('Такого юзера нет !');
+    return this.users.find(user => user.login === login);
   };
 
   this.getUserStatus = function(userId) {
-    const user = this.users.find(users => users.id === userId);
-    if (user) {
-      return user.isActive ? 'active' : 'inactive';
-    }
-    alert('Такого юзера нет !');
+    return this.users.find(users => users.id === userId).isActive
+      ? 'active'
+      : 'inactive';
   };
 
   this.addUser = function(user) {
-    if (this.users.find(users => users.login === user.login)) {
-      alert('Юзер с таким логином уже есть!');
-      return;
+    let check = this.users.find(users => users.login === user.login);
+    if (!check) {
+      user.id = this.getId();
+      user.isActive = false;
+      this.users.push(user);
     }
-    user.id = this.getId();
-    user.isActive = false;
-    this.users.push(user);
   };
 
   this.removeUserById = function(userId) {
-    const idx = this.users.indexOf(
-      this.users.find(users => users.id === userId)
-    );
-    if (idx >= 0) {
-      this.users.splice(idx, 1);
-      return;
-    }
-    alert('Такого юзера нет !');
+    this.users = this.users.filter(users => users.id !== userId);
   };
 
   this.getUserCount = function() {
@@ -98,11 +84,7 @@ function SocialBook(users = [], posts = {}) {
   //----------- Доп.задания-----------//
 
   this.getUserPosts = function(userId) {
-    if (!(userId in this.posts)) {
-      alert('Такого юзера нет !');
-      return;
-    }
-    return this.posts[userId].map(user => user.text);
+    return this.posts[userId];
   };
 
   this.addPost = function(userId, post) {
@@ -114,51 +96,18 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.removePost = function(userId, postId) {
-    if (!(userId in this.posts)) {
-      alert('Такого юзера нет !');
-      return;
-    }
-    let idx = -1; //.filter для слабаков
-    this.posts[userId].find((post, index) => {
-      if (post.id === postId) {
-        idx = index;
-        return true;
-      }
-      return false;
-    });
-    if (idx >= 0) {
-      this.posts[userId].splice(idx, 1);
-      return;
-    }
-    alert('Такого поста нет !');
+    this.posts[userId] = this.posts[userId].filter(post => post.id !== postId);
   };
 
   this.getAllLikes = function(userId) {
-    if (!(userId in this.posts)) {
-      alert('Такого юзера нет !');
-      return;
-    }
     return this.posts[userId].reduce((acc, post) => acc + post.likes, 0);
   };
 
   this.addPostLike = function(userId, postId) {
-    if (!(userId in this.posts)) {
-      alert('Такого юзера нет !');
-      return;
-    }
-    const post = this.posts[userId].find(post => post.id === postId);
-    if (post) {
-      post.likes += 1;
-      return;
-    }
-    alert('Такого поста нет !');
+    this.posts[userId].find(post => post.id === postId).likes += 1;
   };
 
   this.getPostsCount = function(userId) {
-    if (!(userId in this.posts)) {
-      alert('Такого юзера нет !');
-      return;
-    }
     return this.posts[userId].length;
   };
 }
@@ -181,9 +130,9 @@ const mockUser = {
 
 //console.log(socialBook.getUserPosts('-s19a6hqce'));
 //console.log(socialBook.addPost('-s19a6hqce', 'Added New Post'));
-////console.log(socialBook.removePost('-s19a6hqce', '-199hb6igr'));
+//console.log(socialBook.removePost('-s19a6hqce', '-199hb6igr'));
 //console.log(socialBook.getAllLikes('-e51cpd4di'));
 //console.log(socialBook.addPostLike('-e51cpd4di', '-i03pbhy3s'));
-//console.log(socialBook.getPostsCount('s19a6hqce'));
+//console.log(socialBook.getPostsCount('-s19a6hqce'));
 
 //console.log(socialBook);
