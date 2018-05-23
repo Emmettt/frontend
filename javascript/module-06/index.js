@@ -93,14 +93,14 @@ Hamburger.prototype.getStuffing = function() {
 
 Hamburger.prototype.calculatePrice = function() {
   return Object.keys(this).reduce(
-    (acc, item) => acc + (this[item].price || 0),
+    (acc, item) => acc + (this[item].price ? this[item].price : 0),
     0
   );
 };
 
 Hamburger.prototype.calculateCalories = function() {
   return Object.keys(this).reduce(
-    (acc, item) => acc + (this[item].calories || 0),
+    (acc, item) => acc + (this[item].calories ? this[item].calories : 0),
     0
   );
 };
