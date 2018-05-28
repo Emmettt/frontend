@@ -2,17 +2,52 @@
 
 class Hamburger {
   constructor(size, stuffing) {
-    if (size === undefined)
-      throw new Error('HamburgerException: no size given');
-    if (stuffing === undefined)
-      throw new Error('HamburgerException: no stuffing given');
-    if (size.type != 'SIZE')
-      throw new Error(`HamburgerException: invalid size ${size.item}`);
-    if (stuffing.type != 'STUFFING')
-      throw new Error(`HamburgerException: invalid stuffing ${stuffing.item}`);
-
     this.size = Object.assign({}, size);
     this.stuffing = Object.assign({}, stuffing);
+  }
+
+  addTopping(topping) {
+    if (!this.hasOwnProperty([topping.item])) {
+      this[topping.item] = Object.assign({}, topping);
+    }
+  }
+
+  removeTopping(topping) {
+    if (!this.hasOwnProperty([topping.item])) {
+      delete this[topping.item];
+    }
+  }
+
+  getToppings() {
+    let arrToppings = [];
+    let key;
+    for (key in this) {
+      if (this.hasOwnProperty(key) && this[key].type === 'TOPPING')
+        arrToppings.push(this[key].item);
+    }
+    return arrToppings;
+  }
+
+  getSize() {
+    return this.size.item;
+  }
+
+  getStuffing() {
+    return this.stuffing.item;
+  }
+
+  calculatePrice() {
+    return Object.keys(this).reduce(
+      (acc, item) => acc + (this[item].price ? this[item].price : 0),
+      0
+    );
+  }
+
+  calculateCalories() {
+    return Object.keys(this).reduce(
+      (acc, item) => acc + (this[item].calories ? this[item].calories : 0),
+      0
+    );
   }
 }
 
@@ -59,67 +94,11 @@ Hamburger.TOPPING_SAUCE = {
   price: 7
 };
 
-Hamburger.prototype.addTopping = function(topping) {
-  if (this.hasOwnProperty([topping.item])) {
-    throw new Error(`HamburgerException: duplicate topping ${topping.item}`);
-  }
-  this[topping.item] = Object.assign({}, topping);
-};
-
-Hamburger.prototype.removeTopping = function(topping) {
-  if (!this.hasOwnProperty([topping.item])) {
-    throw new Error(`HamburgerException: No topping to remove ${topping.item}`);
-  }
-  delete this[topping.item];
-};
-
-Hamburger.prototype.getToppings = function() {
-  let arrToppings = [];
-  let key;
-  for (key in this) {
-    if (this.hasOwnProperty(key) && this[key].type === 'TOPPING')
-      arrToppings.push(this[key].item);
-  }
-  return arrToppings;
-};
-
-Hamburger.prototype.getSize = function() {
-  return this.size.item;
-};
-
-Hamburger.prototype.getStuffing = function() {
-  return this.stuffing.item;
-};
-
-Hamburger.prototype.calculatePrice = function() {
-  return Object.keys(this).reduce(
-    (acc, item) => acc + (this[item].price ? this[item].price : 0),
-    0
-  );
-};
-
-Hamburger.prototype.calculateCalories = function() {
-  return Object.keys(this).reduce(
-    (acc, item) => acc + (this[item].calories ? this[item].calories : 0),
-    0
-  );
-};
-
-let hamburger;
-try {
-  hamburger = new Hamburger(Hamburger.SIZE_LARGE, Hamburger.STUFFING_MEAT);
-} catch (e) {
-  console.log(e.name + ': ' + e.message);
-  // exit
-}
-
-try {
-  hamburger.removeTopping(Hamburger.TOPPING_SPICE);
-} catch (e) {
-  console.log(e.name + ': ' + e.message);
-  // exit
-}
-
+let hamburger = new Hamburger(Hamburger.SIZE_LARGE, Hamburger.STUFFING_MEAT);
+hamburger.addTopping(Hamburger.TOPPING_SPICE);
+hamburger.removeTopping(Hamburger.TOPPING_SPICE);
+hamburger.addTopping(Hamburger.TOPPING_SPICE);
+console.log('Toppings are: ', hamburger.getToppings());
 console.log('Calories: ', hamburger.calculateCalories());
 console.log('Price: ', hamburger.calculatePrice());
 hamburger.addTopping(Hamburger.TOPPING_SAUCE);
