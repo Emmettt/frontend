@@ -2,52 +2,44 @@
 
 class Hamburger {
   constructor(size, stuffing) {
-    this.size = Object.assign({}, size);
-    this.stuffing = Object.assign({}, stuffing);
+    this.stuff = [];
+    this.stuff.push({ ...size }, { ...stuffing });
   }
 
   addTopping(topping) {
-    if (!this.hasOwnProperty([topping.item])) {
-      this[topping.item] = Object.assign({}, topping);
+    if (!this.stuff.some(element => element.item === topping.item)) {
+      this.stuff.push({ ...topping });
     }
   }
 
   removeTopping(topping) {
-    if (!this.hasOwnProperty([topping.item])) {
-      delete this[topping.item];
-    }
+    this.stuff = this.stuff.filter(element => element.item !== topping.item);
   }
 
   getToppings() {
     let arrToppings = [];
-    let key;
-    for (key in this) {
-      if (this.hasOwnProperty(key) && this[key].type === 'TOPPING')
-        arrToppings.push(this[key].item);
-    }
+    this.stuff.forEach(element => {
+      if (element.type === 'TOPPING') {
+        arrToppings.push(element.item);
+      }
+    });
     return arrToppings;
   }
 
   getSize() {
-    return this.size.item;
+    return this.stuff.find(element => element.type === 'SIZE').item;
   }
 
   getStuffing() {
-    return this.stuffing.item;
+    return this.stuff.find(element => element.type === 'STUFFING').item;
   }
 
   calculatePrice() {
-    return Object.keys(this).reduce(
-      (acc, item) => acc + (this[item].price ? this[item].price : 0),
-      0
-    );
+    return this.stuff.reduce((acc, element) => (acc += element.price), 0);
   }
 
   calculateCalories() {
-    return Object.keys(this).reduce(
-      (acc, item) => acc + (this[item].calories ? this[item].calories : 0),
-      0
-    );
+    return this.stuff.reduce((acc, element) => (acc += element.calories), 0);
   }
 }
 
@@ -95,10 +87,20 @@ Hamburger.TOPPING_SAUCE = {
 };
 
 let hamburger = new Hamburger(Hamburger.SIZE_LARGE, Hamburger.STUFFING_MEAT);
+console.log(hamburger);
+
 hamburger.addTopping(Hamburger.TOPPING_SPICE);
+hamburger.addTopping(Hamburger.TOPPING_SPICE);
+
 hamburger.removeTopping(Hamburger.TOPPING_SPICE);
+hamburger.addTopping(Hamburger.TOPPING_SAUCE);
 hamburger.addTopping(Hamburger.TOPPING_SPICE);
+hamburger.addTopping(Hamburger.TOPPING_SPICE);
+hamburger.addTopping(Hamburger.TOPPING_SPICE);
+
 console.log('Toppings are: ', hamburger.getToppings());
+console.log(hamburger.getSize());
+console.log(hamburger.getStuffing());
 console.log('Calories: ', hamburger.calculateCalories());
 console.log('Price: ', hamburger.calculatePrice());
 hamburger.addTopping(Hamburger.TOPPING_SAUCE);
@@ -107,3 +109,5 @@ console.log(
   'Is hamburger large: ',
   hamburger.getSize() === Hamburger.SIZE_LARGE.item
 );
+Hamburger.SIZE_LARGE.calories = 3;
+console.log(hamburger);
