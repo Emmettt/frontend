@@ -61,7 +61,7 @@ class Gallery {
     if (event.target.tagName !== 'IMG') {
       return;
     }
-    this.imgFullSize.classList.remove('show');
+    this.imgFullSize.classList.toggle('show');
     this.imgFullSize.classList.add('hide');
     [...this.previewListItems].forEach(el =>
       el.firstChild.classList.remove('active')
@@ -70,8 +70,10 @@ class Gallery {
     setTimeout(() => {
       this.imgFullSize.setAttribute('src', event.target.dataset.fullview);
       this.imgFullSize.setAttribute('alt', event.target.alt);
-      this.imgFullSize.classList.remove('hide');
-      this.imgFullSize.classList.add('show');
+      this.imgFullSize.onload = () => {
+        this.imgFullSize.classList.remove('hide');
+        this.imgFullSize.classList.add('show');
+      };
     }, 200);
   }
 }
