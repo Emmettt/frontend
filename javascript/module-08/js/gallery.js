@@ -61,7 +61,7 @@ class Gallery {
     if (event.target.tagName !== 'IMG') {
       return;
     }
-    this.imgFullSize.classList.toggle('show');
+    this.imgFullSize.classList.remove('show');
     this.imgFullSize.classList.add('hide');
     [...this.previewListItems].forEach(el =>
       el.firstChild.classList.remove('active')
