@@ -1,0 +1,21 @@
+/* Контейнеры галерей */
+
+.size-1 {
+  width: 900px;
+}
+
+.size-2 {
+  width: 600px;
+}
+
+.size-3 {
+  width: 1300px;
+}
+
+.image-gallery {
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid gray;
+  margin: 20px 20px;
+  box-shadow: 10px 10px 5px lightgray;
+}
