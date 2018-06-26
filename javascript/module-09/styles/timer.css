@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 50px;
+}
+
+.time {
+  font-size: 5em;
+  color: darkblue;
+  text-align: center;
+  margin: 0px;
+}
+
+.btn {
+  width: 100px;
+  height: 50px;
+  color: rgb(17, 13, 236);
+  background: cornflowerblue;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  margin: 20px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5), 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+  background: rgb(79, 90, 245);
+  color: wheat;
+}
+
+.listWrapper {
+  width: 200px;
+  max-height: 110px;
+  margin: auto;
+  overflow-y: scroll;
+}
+
+.laps {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.lap-item {
+  color: darkblue;
+  text-align: center;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.inactive {
+  color: rgb(110, 108, 255);
+}
+
+.inactive:hover {
+  color: rgb(110, 108, 255);
+  background: cornflowerblue;
+}
