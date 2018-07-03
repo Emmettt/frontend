@@ -1,0 +1,65 @@
+﻿.requestWrapper {
+  width: 360px;
+  height: 260px;
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5), 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+  background: rgb(240, 246, 255);
+}
+.fieldname {
+  display: inline-block;
+  width: 50px;
+  text-align: right;
+}
+
+.inputrequest {
+  width: 200px;
+  height: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.btn {
+  text-align: center;
+  width: 87px;
+  height: 30px;
+  border: 1px solid green;
+  font-weight: 600;
+  color: rgb(0, 7, 99);
+  background: rgb(190, 255, 184);
+}
+.btn:hover {
+  color: rgb(255, 255, 255);
+  background: rgb(156, 162, 247);
+}
+
+.responseWrapper {
+  width: 620px;
+  height: 500px;
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5), 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+  background: rgb(240, 246, 255);
+}
+
+.fieldsetRequest {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid grey;
+  margin: 20px;
+  color: grey;
+}
+
+.fieldsetResponse {
+  max-width: 550px;
+  height: 430px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid grey;
+  margin: 20px;
+  color: grey;
+}
+
+.js-response {
+  width: 550px;
+  height: 415px;
+  overflow-y: scroll;
+}

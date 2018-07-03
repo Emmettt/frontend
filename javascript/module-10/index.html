@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>ajax</title>
+</head>
+
+<body>
+  <section class="request">
+    <div class="requestWrapper">
+      <fieldset class="fieldsetRequest">
+        <legend>Personal information:</legend>
+        <p class="fieldname">id:</p>
+        <input class="inputrequest js-id" type="text ">
+        <p class="fieldname">name:</p>
+        <input class="inputrequest js-name" type="text ">
+        <p class="fieldname">age:</p>
+        <input class="inputrequest js-age" type="text ">
+      </fieldset>
+      <button class="btn js-get">Get</button>
+      <button class="btn js-add">Add</button>
+      <button class="btn js-remove">Remove</button>
+      <button class="btn js-update">Update</button>
+    </div>
+  </section>
+
+  <section class="response">
+    <div class="responseWrapper">
+      <fieldset class="fieldsetResponse">
+        <legend>Response Log</legend>
+        <div class="js-response">
+         </div>
+      </fieldset>
+    </div>
+  </section>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
